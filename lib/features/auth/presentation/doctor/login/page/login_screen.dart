@@ -1,0 +1,118 @@
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:se7ety/components/inputs/custom_text_field.dart';
+import 'package:se7ety/components/inputs/password_text_field.dart'; // ✅ استيراد الحقل الجديد
+import 'package:se7ety/core/constants/app_images.dart';
+import 'package:se7ety/core/utils/colors.dart';
+import 'package:se7ety/core/utils/text_styles.dart';
+import 'package:se7ety/features/auth/presentation/doctor/register/page/register_screen.dart';
+
+class LoginScreenDoc extends StatefulWidget {
+  const LoginScreenDoc({super.key});
+
+  @override
+  State<LoginScreenDoc> createState() => _LoginScreenDocState();
+}
+
+class _LoginScreenDocState extends State<LoginScreenDoc> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.whiteColor,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 40),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  children: [Image.asset(AppImages.logo, height: 250), Gap(10)],
+                ),
+                Gap(40),
+                Text(
+                  'سجل دخول الآن كـ دكتور',
+                  style: TextStyles.styleSize24(color: AppColors.secondColor),
+                ),
+                Gap(30),
+                CustomTextField(
+                  hint: 'أدخل بريدك الالكتروني',
+                  controller: emailController,
+                  suffixIcon: Icon(
+                    Icons.email_outlined,
+                    color: AppColors.secondColor,
+                  ),
+                ),
+                Gap(20),
+                PasswordTextField(
+                  hint: 'كلمة السر',
+                  controller: passwordController,
+                ),
+                Gap(10),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'نسيت كلمة السر؟',
+                      style: TextStyles.styleSize18(color: AppColors.darkColor),
+                    ),
+                  ),
+                ),
+                Gap(10),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.secondColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      'تسجيل الدخول',
+                      style: TextStyles.styleSize24(
+                        color: AppColors.whiteColor,
+                      ),
+                    ),
+                  ),
+                ),
+                Gap(20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RegisterScreenDoc(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'سجل الآن',
+                        style: TextStyles.styleSize18(
+                          color: AppColors.secondColor,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      'ليس لدي حساب؟',
+                      style: TextStyles.styleSize18(color: AppColors.darkColor),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
