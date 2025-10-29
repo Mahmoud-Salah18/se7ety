@@ -37,6 +37,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       maxLines: widget.maxLines,
       onTap: widget.onTap,
       decoration: InputDecoration(
+        prefixIcon: widget.prefixIcon,
         hintText: widget.hint,
         suffixIcon: GestureDetector(
           onTap: () {

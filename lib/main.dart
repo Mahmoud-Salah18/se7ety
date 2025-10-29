@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:se7ety/features/splash/splash_screen.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:se7ety/core/routes/routes.dart';
+import 'package:se7ety/core/utils/theme.dart';
 import 'package:se7ety/firebase_options.dart';
 
 Future<void> main() async {
@@ -14,6 +16,17 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: SplashScreen());
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: Routes.routes,
+      supportedLocales: [Locale("ar")],
+      locale: Locale("ar"),
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      theme: AppTheme.lightTheme,
+    );
   }
 }

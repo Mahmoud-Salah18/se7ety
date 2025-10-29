@@ -6,7 +6,7 @@ import 'package:se7ety/core/utils/text_styles.dart';
 class AppTheme {
   static get lightTheme => ThemeData(
     scaffoldBackgroundColor: AppColors.whiteColor,
-    fontFamily: AppFonts.dmSerifFamily,
+    fontFamily: AppFonts.cairoFamily,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.whiteColor,
       centerTitle: true,
@@ -26,17 +26,24 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       fillColor: AppColors.accentColor,
       filled: true,
-      hintStyle: TextStyles.styleSize14(color: AppColors.greyColor),
+      prefixIconColor: AppColors.secondColor,
+      suffixIconColor: AppColors.secondColor,
+      hintStyle: TextStyles.body.copyWith(color: AppColors.greyColor),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide.none,
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(color: AppColors.primaryColor),
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide.none,
       ),
-      errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide.none,
+      ),
       focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide.none,
       ),
     ),
   );

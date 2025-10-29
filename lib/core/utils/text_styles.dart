@@ -1,59 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:se7ety/core/utils/colors.dart';
 
 class TextStyles {
-  static TextStyle styleSize30({
-    Color? color,
-    double fontSize = 30,
-    FontWeight fontWeight = FontWeight.bold,
-  }) {
-    return TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: color);
-  }
+  static const TextStyle headline = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  );
 
-  static TextStyle styleSize24({
-    Color? color,
-    double fontSize = 24,
-    FontWeight fontWeight = FontWeight.bold,
-  }) {
-    return TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: color);
-  }
+  static const TextStyle subHeadline = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  );
 
-  static TextStyle styleSize20({
-    Color? color,
-    double fontSize = 20,
-    FontWeight fontWeight = FontWeight.normal,
-  }) {
-    return TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: color);
-  }
+  static const TextStyle title = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: AppColors.secondColor,
+  );
 
-  static TextStyle styleSize18({
-    Color? color,
-    double fontSize = 18,
-    FontWeight fontWeight = FontWeight.normal,
-  }) {
-    return TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: color);
-  }
-
-  static TextStyle styleSize16({
-    Color? color,
-    double fontSize = 16,
-    FontWeight fontWeight = FontWeight.normal,
-  }) {
-    return TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: color);
-  }
-
-  static TextStyle styleSize14({
-    Color? color,
-    double fontSize = 14,
-    FontWeight fontWeight = FontWeight.normal,
-  }) {
-    return TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: color);
-  }
-
-  static TextStyle styleSize12({
-    Color? color,
-    double fontSize = 12,
-    FontWeight fontWeight = FontWeight.normal,
-  }) {
-    return TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: color);
-  }
+  static const TextStyle body = TextStyle(fontSize: 16);
+  static const TextStyle small = TextStyle(fontSize: 14);
+  static const TextStyle caption = TextStyle(fontSize: 12);
 }

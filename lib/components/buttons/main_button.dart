@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_styles.dart';
@@ -10,7 +9,7 @@ class MainButton extends StatelessWidget {
     required this.onPressed,
     this.height = 55,
     this.width = double.infinity,
-    this.bgColor = AppColors.primaryColor,
+    this.bgColor = AppColors.secondColor,
     this.borderColor,
     this.textColor,
   });
@@ -34,13 +33,13 @@ class MainButton extends StatelessWidget {
               ? BorderSide(color: borderColor ?? AppColors.darkColor)
               : BorderSide.none,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusGeometry.circular(8),
+            borderRadius: BorderRadiusGeometry.circular(15),
           ),
         ),
         onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyles.styleSize16(
+          style: TextStyles.body.copyWith(
             color: textColor ?? AppColors.whiteColor,
           ),
         ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:se7ety/core/constants/app_images.dart';
+import 'package:se7ety/core/routes/navigation.dart';
+import 'package:se7ety/core/routes/routes.dart';
 import 'package:se7ety/core/utils/colors.dart';
-import 'package:se7ety/features/welcome/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,13 +14,10 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => WelcomeScreen()),
-      );
+    Future.delayed(const Duration(seconds: 3), () {
+      pushWithReplacement(context, Routes.welcome);
     });
+    super.initState();
   }
 
   @override

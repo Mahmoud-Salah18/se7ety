@@ -5,13 +5,8 @@ Future pushTo(BuildContext context, String route, {Object? extra}) {
   return context.push(route, extra: extra);
 }
 
-Future pushWithReplacement(
-  BuildContext context,
-  String route, {
-  Object? extra,
-}) async {
-  context.pop();
-  return context.push(route, extra: extra);
+pushWithReplacement(BuildContext context, String route, {Object? extra}) {
+  return context.pushReplacement(route, extra: extra);
 }
 
 goToBase(BuildContext context, String route, {Object? extra}) {

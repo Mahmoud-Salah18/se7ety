@@ -11,6 +11,8 @@ class CustomTextField extends StatelessWidget {
     this.readOnly = false,
     this.onTap,
     this.prefixIcon,
+    this.keyboardType,
+    this.textAlign = TextAlign.start,
   });
 
   final String? hint;
@@ -21,6 +23,8 @@ class CustomTextField extends StatelessWidget {
   final Widget? prefixIcon;
   final bool readOnly;
   final VoidCallback? onTap;
+  final TextInputType? keyboardType;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,12 @@ class CustomTextField extends StatelessWidget {
       readOnly: readOnly,
       controller: controller,
       maxLines: maxLines,
+      textAlign: textAlign,
+      // inputFormatters: [
+
+      // ],
       onTap: onTap,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         hintText: hint,
         suffixIcon: suffixIcon,

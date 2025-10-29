@@ -25,7 +25,7 @@ showMyDialog(
           : AppColors.primaryColor,
       content: Text(
         message,
-        style: TextStyles.styleSize16(color: AppColors.whiteColor),
+        style: TextStyles.body.copyWith(color: AppColors.whiteColor),
       ),
     ),
   );
