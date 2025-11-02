@@ -3,11 +3,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SharedPref {
   static late SharedPreferences pref;
 
-  static const String kUserData = "userData";
-  static const String kWishlist = "wishlist";
+  static const String onBoardingSeen = "onBoardingSeen";
 
   static init() async {
     pref = await SharedPreferences.getInstance();
+  }
+
+  static setOnboardingSeen() async {
+    await pref.setBool(onBoardingSeen, true);
+  }
+
+  static bool isOnboardingSeen() {
+    return pref.getBool(onBoardingSeen) ?? false;
   }
 
   static saveData(String key, dynamic value) {

@@ -8,9 +8,15 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.whiteColor,
     fontFamily: AppFonts.cairoFamily,
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.whiteColor,
+      backgroundColor: AppColors.secondColor,
       centerTitle: true,
       surfaceTintColor: Colors.transparent,
+      titleTextStyle: TextStyle(
+        fontFamily: AppFonts.cairoFamily,
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: AppColors.whiteColor,
+      ),
     ),
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primaryColor,

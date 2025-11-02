@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:se7ety/components/buttons/main_button.dart';
+import 'package:se7ety/core/routes/navigation.dart';
+import 'package:se7ety/core/routes/routes.dart';
+import 'package:se7ety/core/services/local/shared_pref.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_styles.dart';
 import 'package:se7ety/features/intro/onboarding/onboarding_model.dart';
@@ -21,9 +24,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.whiteColor,
         actions: [
           if (currentIndex != onboardingList.length - 1)
-            TextButton(onPressed: () {}, child: Text("تخطي")),
+            TextButton(
+              onPressed: () {
+                SharedPref.setOnboardingSeen();
+                pushWithReplacement(context, Routes.welcome);
+              },
+              child: Text("تخطي"),
+            ),
         ],
       ),
       body: SafeArea(
@@ -89,7 +99,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       width: 100,
                       height: 45,
                       text: "هيا بنا",
-                      onPressed: () {},
+                      onPressed: () {
+                        SharedPref.setOnboardingSeen();
+                        pushWithReplacement(context, Routes.welcome);
+                      },
                     ),
                 ],
               ),

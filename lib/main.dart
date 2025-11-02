@@ -2,12 +2,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:se7ety/core/routes/routes.dart';
+import 'package:se7ety/core/services/local/shared_pref.dart';
 import 'package:se7ety/core/utils/theme.dart';
 import 'package:se7ety/firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await SharedPref.init();
   runApp(const MainApp());
 }
 
