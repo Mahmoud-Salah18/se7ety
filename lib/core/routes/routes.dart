@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:se7ety/features/auth/models/doctor_model.dart';
 import 'package:se7ety/features/auth/models/user_type_enum.dart';
 import 'package:se7ety/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:se7ety/features/auth/presentation/pages/doctor_registeration_screen.dart';
@@ -9,7 +10,10 @@ import 'package:se7ety/features/auth/presentation/pages/register_screen.dart';
 import 'package:se7ety/features/intro/onboarding/onboarding_screen.dart';
 import 'package:se7ety/features/intro/splash/splash_screen.dart';
 import 'package:se7ety/features/intro/welcome/welcome_screen.dart';
+import 'package:se7ety/features/patient/home/presentation/pages/home_search_screen.dart';
+import 'package:se7ety/features/patient/home/presentation/pages/specialization_search_screen.dart';
 import 'package:se7ety/features/patient/main/nav_bar_screen.dart';
+import 'package:se7ety/features/patient/search/page/doctor_profile_screen.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -22,6 +26,9 @@ class Routes {
   static const String main = "/main";
   static const String doctorRegistration = "/doctorRegistration";
   static const String patientMain = "/patientMain";
+  static const String specializationSearch = "/specializationSearch";
+  static const String homeSearch = "/homeSearch";
+  static const String doctorProfile = "/doctorProfile";
 
   static GoRouter routes = GoRouter(
     initialLocation: splash,
@@ -60,6 +67,21 @@ class Routes {
       GoRoute(
         path: patientMain,
         builder: (context, state) => const PatientMainScreen(),
+      ),
+      GoRoute(
+        path: specializationSearch,
+        builder: (context, state) =>
+            SpecializationSearchScreen(specialization: state.extra as String),
+      ),
+      GoRoute(
+        path: homeSearch,
+        builder: (context, state) =>
+            HomeSearchScreen(searchKey: state.extra as String),
+      ),
+      GoRoute(
+        path: doctorProfile,
+        builder: (context, state) =>
+            DoctorProfileScreen(doctorModel: state.extra as DoctorModel),
       ),
     ],
   );

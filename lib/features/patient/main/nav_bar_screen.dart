@@ -1,9 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_styles.dart';
 import 'package:se7ety/features/patient/home/presentation/pages/home_screen.dart';
+import 'package:se7ety/features/patient/search/page/search_screen.dart';
 
 class PatientMainScreen extends StatefulWidget {
   const PatientMainScreen({super.key});
@@ -14,14 +14,12 @@ class PatientMainScreen extends StatefulWidget {
 
 class _MainPageState extends State<PatientMainScreen> {
   int _selectedIndex = 0;
-  final List _pages = [
-    const PatientHomeScreen(),
-  ];
+  final List _pages = [PatientHomeScreen(), SearchScreen()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[0],
+      body: _pages[_selectedIndex],
       bottomNavigationBar: Container(
         padding: EdgeInsets.fromLTRB(10, 10, 10, 20),
         decoration: BoxDecoration(
@@ -45,14 +43,18 @@ class _MainPageState extends State<PatientMainScreen> {
           tabBorderRadius: 20,
           gap: 5,
           activeColor: AppColors.whiteColor,
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 20,vertical: 12),
+          padding: EdgeInsetsGeometry.symmetric(horizontal: 20, vertical: 12),
           duration: Duration(milliseconds: 400),
           tabBackgroundColor: AppColors.secondColor,
           textStyle: TextStyles.body.copyWith(color: AppColors.whiteColor),
           tabs: [
             GButton(iconSize: 28, icon: Icons.home, text: "الرئيسية"),
             GButton(icon: Icons.search, text: "البحث"),
-            GButton(iconSize: 28, icon: Icons.calendar_month_rounded, text: "المواعيد"),
+            GButton(
+              iconSize: 28,
+              icon: Icons.calendar_month_rounded,
+              text: "المواعيد",
+            ),
             GButton(iconSize: 29, icon: Icons.person, text: "الحساب"),
           ],
           selectedIndex: _selectedIndex,

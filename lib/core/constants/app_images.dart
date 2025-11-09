@@ -6,4 +6,5 @@ class AppImages {
   static const String onboarding3Svg = "assets/images/on3.svg";
   static const String doctor = "assets/images/doc.png";
   static const String doctorCard = "assets/images/doctor-card.svg";
+  static const String noSearchSvg = "assets/images/no-search.svg";
 }

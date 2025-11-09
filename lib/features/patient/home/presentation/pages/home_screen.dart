@@ -1,9 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:se7ety/core/routes/navigation.dart';
+import 'package:se7ety/core/routes/routes.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_styles.dart';
 import 'package:se7ety/features/patient/home/presentation/widgets/specialist_widget.dart';
+import 'package:se7ety/features/patient/home/presentation/widgets/top_rated_widget.dart';
 
 class PatientHomeScreen extends StatefulWidget {
   const PatientHomeScreen({super.key});
@@ -60,7 +63,7 @@ class _HomePageState extends State<PatientHomeScreen> {
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: "مرحبا",
+                      text: "مرحبا  ",
                       style: TextStyles.body.copyWith(fontSize: 18),
                     ),
                     TextSpan(
@@ -103,12 +106,18 @@ class _HomePageState extends State<PatientHomeScreen> {
                     hintText: "ابحث عن دكتور",
                     suffixIcon: Container(
                       decoration: BoxDecoration(
-                        color: AppColors.secondColor.withOpacity(0.9),
+                        color: AppColors.secondColor.withValues(alpha: 0.9),
                         borderRadius: BorderRadius.circular(17),
                       ),
                       child: IconButton(
                         onPressed: () {
-                          if (_doctorName.text.isNotEmpty) {}
+                          if (_doctorName.text.isNotEmpty) {
+                            pushTo(
+                              context,
+                              Routes.homeSearch,
+                              extra: _doctorName.text,
+                            );
+                          }
                         },
                         iconSize: 20,
                         splashRadius: 20,
@@ -119,13 +128,26 @@ class _HomePageState extends State<PatientHomeScreen> {
                   ),
                   style: TextStyles.body,
                   onFieldSubmitted: (String value) {
-                    if (_doctorName.text.isNotEmpty) {}
+                    if (_doctorName.text.isNotEmpty) {
+                      pushTo(
+                        context,
+                        Routes.homeSearch,
+                        extra: _doctorName.text,
+                      );
+                    }
                   },
                 ),
               ),
               Gap(20),
               const SpecialistBanner(),
               const Gap(10),
+              Text(
+                "الأعلى تقييما",
+                textAlign: TextAlign.center,
+                style: TextStyles.title.copyWith(fontSize: 16),
+              ),
+              Gap(10),
+              TopRatedList(),
             ],
           ),
         ),
