@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_styles.dart';
+import 'package:se7ety/features/patient/appointments/appointments_screen.dart';
 import 'package:se7ety/features/patient/home/presentation/pages/home_screen.dart';
 import 'package:se7ety/features/patient/search/page/search_screen.dart';
 
@@ -14,7 +15,11 @@ class PatientMainScreen extends StatefulWidget {
 
 class _MainPageState extends State<PatientMainScreen> {
   int _selectedIndex = 0;
-  final List _pages = [PatientHomeScreen(), SearchScreen()];
+  final List _pages = [
+    PatientHomeScreen(),
+    SearchScreen(),
+    MyAppointmentsScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {

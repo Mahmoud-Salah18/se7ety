@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:se7ety/components/buttons/main_button.dart';
 import 'package:se7ety/core/constants/app_images.dart';
+import 'package:se7ety/core/routes/navigation.dart';
+import 'package:se7ety/core/routes/routes.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_styles.dart';
 import 'package:se7ety/features/auth/models/doctor_model.dart';
@@ -188,7 +190,12 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: EdgeInsetsGeometry.all(12),
-          child: MainButton(text: "احجز موعد الان", onPressed: () {}),
+          child: MainButton(
+            text: "احجز موعد الان",
+            onPressed: () {
+              pushTo(context, Routes.bookingForm, extra: widget.doctorModel);
+            },
+          ),
         ),
       ),
     );

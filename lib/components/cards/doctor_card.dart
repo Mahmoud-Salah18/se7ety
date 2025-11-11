@@ -31,9 +31,9 @@ class DoctorCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          // if (isClickable) {
-             pushTo(context, Routes.doctorProfile, extra: doctor);
-          // }
+          if (isClickable) {
+            pushTo(context, Routes.doctorProfile, extra: doctor);
+          }
         },
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,10 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:se7ety/features/patient/booking/data/appointment_model.dart';
 
 class FirestoreServices {
   static final CollectionReference _doctorCollection = FirebaseFirestore
       .instance
       .collection("doctor");
 
+  static final CollectionReference _appointmentCollection = FirebaseFirestore
+      .instance
+      .collection("appointment");
   // static final CollectionReference _patientCollection = FirebaseFirestore
   //     .instance
   //     .collection("patient");
@@ -31,5 +36,25 @@ class FirestoreServices {
         .startAt({searchKey})
         .endAt(["$searchKey\uf8ff"])
         .get();
+  }
+
+  static createAppointment(AppointmentModel appointment) {
+    return _appointmentCollection.doc(appointment.id).set(appointment.toJson());
+  }
+
+  static deleteAppointment(String appointmentId) {
+    return _appointmentCollection.doc(appointmentId).delete();
+  }
+
+  static Future<QuerySnapshot> getAppointmentsByPatientId() {
+    String patientId = FirebaseAuth.instance.currentUser!.uid;
+    return _appointmentCollection
+        .where("patientID", isEqualTo: patientId)
+        .get();
+  }
+
+  static Future<QuerySnapshot> getAppointmentsByDoctorId() {
+    String patientId = FirebaseAuth.instance.currentUser!.uid;
+    return _appointmentCollection.where("doctorID", isEqualTo: patientId).get();
   }
 }
